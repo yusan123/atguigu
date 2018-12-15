@@ -1,0 +1,21 @@
+person:
+  name: yssssssssssssss
+  age: 20
+  is-ok: false
+  map:
+    d1:
+     name: li1
+     color: red
+    d2:
+      name: li2
+      color: green
+  list:
+    - l1
+    - l2
+    - l3
+  dog:
+    name: lijuan2
+    color: white
+  email: 122222@sudhu.com
+
+

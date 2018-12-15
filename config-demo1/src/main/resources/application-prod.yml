@@ -1,0 +1,28 @@
+server:
+  port: 8888
+  context-path: /ys
+person:
+  name: ys${random.uuid}
+  age: ${random.int(30)}
+  is-ok: false
+  map:
+    d1:
+     name: li1
+     color: red
+    d2:
+      name: li2
+      color: green
+  list:
+    - l1
+    - l2
+    - l3
+  dog:
+    name: ${person.name1:ys}_dog
+    color: white
+  email: 122222@sudhu.com
+spring:
+  data:
+    solr:
+      repositories:
+        enabled:
+
