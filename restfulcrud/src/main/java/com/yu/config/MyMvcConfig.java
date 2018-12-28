@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * Created by Administrator on 2018/12/26 22:03.
@@ -19,8 +18,9 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("login");
     }
 
+    //这个方法的名字必须交localeResolver 而且大小写不能错
     @Bean
-    public LocaleResolver LocaleResolver(){
+    public LocaleResolver localeResolver(){
         return new MyLocaleResolver();
     }
 }
