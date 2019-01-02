@@ -73,11 +73,14 @@
 									<td th:text="${emp.department.departmentName}"></td>
 									<td th:text="${#dates.format(emp.birth,'yyyy-MM-dd')}"></td>
 									<td>
-                                        <button class="btn btn-sm btn-primary">编辑</button>
-                                        <button class="btn btn-sm btn-danger">删除</button>
+                                        <a class="btn btn-sm btn-primary" th:href="@{/emp/} + ${emp.id}">编辑</a>
+                                        <a id="delbtn" class="btn btn-sm btn-danger" th:attr="delUrl=(@{/emp/}+${emp.id})">删除</a>
                                     </td>
 								</tr>
 							</tbody>
+                            <form id="delForm" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                            </form>>
 						</table>
 					</div>
 				</main>
@@ -86,11 +89,19 @@
 
 		<!-- Bootstrap core JavaScript
     ================================================== -->
+
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
 		<script type="text/javascript" src="asserts/js/popper.min.js"></script>
 		<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
-
+        <script>
+//            $(function(){
+                $('#delbtn').click(function(){
+                    $('#delForm').attr('action',$(this).attr("delUrl")).submit();
+                    return false;
+                });
+           // });
+        </script>
 		<!-- Icons -->
 		<script type="text/javascript" src="asserts/js/feather.min.js"></script>
 		<script>

@@ -7,8 +7,12 @@ import com.yu.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
@@ -40,5 +44,42 @@ public class EmpController {
         return "emp/add";
     }
 
+    //处理添加员工的请求
+    @PostMapping("/emp")
+    public String addEmp(Employee employee){
+        employeeDao.save(employee);
+        return "redirect:/emps";
+    }
+
+    //跳转到修改页面
+    @GetMapping("/emp/{id}")
+    public String toEditPage(@PathVariable Integer id, Model model,
+                             HttpServletRequest req,
+                             HttpServletResponse resp) throws ServletException, IOException {
+        Employee employee = employeeDao.get(id);
+
+        model.addAttribute("emp",employee);
+        //return "forward:/emp";  //这样重定向，不能有效加载静态文件 http://localhost:8080/crud/emp/asserts/js/popper.min.js
+        //return "redirect:/emp";
+
+        //使用原生api请求转发
+        //req.setAttribute("emp",employee);
+        //req.getRequestDispatcher("/emp").forward(req,resp); //也是不能正常加载静态文件
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("deps",departments);
+        return "emp/add";
+    }
+
+    @PutMapping("/emp")
+    public String updateEmp(Employee employee){
+        employeeDao.save(employee);
+        return "redirect:emps";
+    }
+
+    @DeleteMapping("/emp/{id}")
+    public String deleteEmp(@PathVariable Integer id){
+        employeeDao.delete(id);
+        return "redirect:emps";
+    }
 
 }
