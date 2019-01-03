@@ -73,13 +73,13 @@ public class EmpController {
     @PutMapping("/emp")
     public String updateEmp(Employee employee){
         employeeDao.save(employee);
-        return "redirect:emps";
+        return "redirect:/emps";
     }
 
     @DeleteMapping("/emp/{id}")
     public String deleteEmp(@PathVariable Integer id){
         employeeDao.delete(id);
-        return "redirect:emps";
+        return "redirect:/emps";
     }
 
 }
