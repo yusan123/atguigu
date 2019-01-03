@@ -10,12 +10,12 @@ import java.util.List;
 /**
  * Created by Administrator on 2018/12/28 22:56.
  */
-//public class ErrorCtl2 extends BasicErrorController {
-//    public ErrorCtl2(ErrorAttributes errorAttributes, ErrorProperties errorProperties) {
-//        super(errorAttributes, errorProperties);
-//    }
-//
-//    public ErrorCtl2(ErrorAttributes errorAttributes, ErrorProperties errorProperties, List<ErrorViewResolver> errorViewResolvers) {
-//        super(errorAttributes, errorProperties, errorViewResolvers);
-//    }
-//}
+public class ErrorCtl2 extends BasicErrorController {
+    public ErrorCtl2(ErrorAttributes errorAttributes, ErrorProperties errorProperties) {
+        super(errorAttributes, errorProperties);
+    }
+
+    public ErrorCtl2(ErrorAttributes errorAttributes, ErrorProperties errorProperties, List<ErrorViewResolver> errorViewResolvers) {
+        super(errorAttributes, errorProperties, errorViewResolvers);
+    }
+}

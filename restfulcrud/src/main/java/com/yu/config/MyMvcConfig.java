@@ -35,18 +35,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-//                .excludePathPatterns("/login.html","/login").excludePathPatterns("/asserts/**");
+        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/login.html","/login").excludePathPatterns("/asserts/**");
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/META-INF/resources/")
-                .addResourceLocations("classpath:/resources/")
-                .addResourceLocations("classpath:/static/")
-                .addResourceLocations("classpath:/public/");
 
-    }
 
 }
