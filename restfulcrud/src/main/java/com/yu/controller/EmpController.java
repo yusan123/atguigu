@@ -27,6 +27,7 @@ public class EmpController {
 
     @Autowired
     private DepartmentDao departmentDao;
+
     //查询所有员工
     @GetMapping("/emps")
     public String getEmpList(Model model){
@@ -41,7 +42,7 @@ public class EmpController {
     public String toAddEmp(Model model){
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("deps",departments);
-        return "emp/add";
+        return "add";
     }
 
     //处理添加员工的请求
@@ -52,7 +53,7 @@ public class EmpController {
     }
 
     //跳转到修改页面
-    @GetMapping("/emp/{id}")
+    @GetMapping("/emp1/{id}")
     public String toEditPage(@PathVariable Integer id, Model model,
                              HttpServletRequest req,
                              HttpServletResponse resp) throws ServletException, IOException {
@@ -67,7 +68,7 @@ public class EmpController {
         //req.getRequestDispatcher("/emp").forward(req,resp); //也是不能正常加载静态文件
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("deps",departments);
-        return "emp/add";
+        return "add";
     }
 
     @PutMapping("/emp")
