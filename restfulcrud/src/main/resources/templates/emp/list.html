@@ -74,7 +74,7 @@
 									<td th:text="${#dates.format(emp.birth,'yyyy-MM-dd')}"></td>
 									<td>
                                         <a class="btn btn-sm btn-primary" th:href="@{/emp/} + ${emp.id}">编辑</a>
-                                        <a id="delbtn" class="btn btn-sm btn-danger" th:attr="delUrl=(@{/emp/}+${emp.id})">删除</a>
+                                        <a id="delbtn" class="btn btn-sm btn-danger btn-del" th:attr="delUrl=(@{/emp/}+${emp.id})">删除</a>
                                     </td>
 								</tr>
 							</tbody>
@@ -136,8 +136,7 @@
 	</body>
     <script type="text/javascript">
         $(function(){
-            $('.btn-danger').click(function(){
-                alert(111);
+            $('.btn-del').click(function(){
                 $('#delForm').attr('action',$(this).attr("delUrl")).submit();
                 return false;
             });
