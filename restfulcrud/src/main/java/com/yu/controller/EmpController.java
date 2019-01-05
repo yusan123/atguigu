@@ -79,6 +79,7 @@ public class EmpController {
     @DeleteMapping("/emp/{id}")
     public String deleteEmp(@PathVariable Integer id){
         employeeDao.delete(id);
+        int a = Integer.valueOf("ssssssss");
         return "redirect:/emps";
     }
 

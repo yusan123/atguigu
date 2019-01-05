@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by Administrator on 2018/12/28 22:18.
  */
-@Controller
+//@Controller
 public class MyErrorController implements ErrorController {
 
     @RequestMapping("/error")
